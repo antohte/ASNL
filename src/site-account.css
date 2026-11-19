@@ -1,0 +1,165 @@
+:root {
+  --profile-top: max(clamp(16px, 3vw, 38px), env(safe-area-inset-top, 0px));
+  --profile-right: max(clamp(16px, 3vw, 42px), env(safe-area-inset-right, 0px));
+}
+.asnl-icon-button {
+  display: inline-grid;
+  place-items: center;
+  flex: none;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 1px solid transparent;
+  border-radius: 50%;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+}
+.asnl-icon-button:hover { background: #8882; }
+.asnl-profile,
+.asnl-profile:hover {
+  position: fixed;
+  inset: var(--profile-top) var(--profile-right) auto auto;
+  z-index: 5;
+  border: 0;
+  background: transparent;
+}
+.asnl-profile svg { width: 22px; height: 22px; filter: drop-shadow(0 1px 2px #faf7f5b0); }
+.home-profile { color: white; }
+.home-profile svg { filter: drop-shadow(0 1px 3px #000); }
+.shop-navigation:has(.asnl-profile), .reservation-top:has(.asnl-profile) {
+  min-height: calc(var(--profile-top) + 48px);
+}
+.shop-account-actions { display: flex; align-items: center; margin-inline-end: 50px; }
+
+.asnl-dialog {
+  color-scheme: light;
+  width: min(440px, calc(100% - 28px));
+  max-height: min(720px, calc(100dvh - 28px));
+  padding: 0;
+  border: 1px solid #e5deda;
+  border-radius: 12px;
+  background: #faf7f5;
+  color: #191719;
+  box-shadow: 0 24px 64px #120d1166;
+}
+.asnl-dialog::backdrop { background: #160f14a3; }
+.asnl-dialog-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 12px 16px 10px 20px;
+  border-bottom: 1px solid #e5deda;
+}
+.asnl-dialog-heading h2 { font: 1.17rem/1.14 'Archivo Black', sans-serif; letter-spacing: -.035em; }
+.asnl-dialog-content { padding: 18px 20px 20px; display: grid; gap: 12px; }
+.asnl-dialog-content p { line-height: 1.4; color: #575055; }
+.asnl-action {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 44px;
+  padding: 8px 14px;
+  border: 1px solid transparent;
+  border-radius: 5px;
+  font: inherit;
+  font-weight: 730;
+  text-align: center;
+  cursor: pointer;
+}
+.asnl-action svg { width: 16px; }
+.asnl-action-primary { color: #fff; background: #af271d; }
+.asnl-action-primary:hover { background: #92241b; }
+
+.asnl-account-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font: .96rem/1.1 'Archivo Black', sans-serif;
+  text-transform: uppercase;
+}
+.asnl-account-brand img { object-fit: contain; }
+.asnl-account-modes { display: flex; gap: 20px; border-bottom: 1px solid #ded5d0; }
+.asnl-account-modes button {
+  min-height: 44px;
+  padding: 0 2px;
+  border: 0;
+  border-bottom: 2px solid transparent;
+  color: #61595c;
+  background: transparent;
+  font: inherit;
+  cursor: pointer;
+}
+.asnl-account-modes [aria-pressed=true] { border-bottom-color: var(--accent); color: #191719; font-weight: 750; }
+.asnl-account-form, .asnl-account-form label { display: grid; gap: 7px; min-width: 0; }
+.asnl-account-names { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.asnl-account-form label { font-weight: 650; }
+.asnl-account-form input, .asnl-account-form textarea {
+  width: 100%;
+  min-width: 0;
+  min-height: 40px;
+  padding: 6px 8px;
+  border: 1px solid #bbb0af;
+  border-radius: 4px;
+  font: inherit;
+  font-weight: 400;
+  color: #191719;
+  background: #fff;
+}
+.asnl-account-form textarea { resize: vertical; }
+.asnl-account-form small { color: #61595c; font-weight: 400; }
+.asnl-account-submit {
+  justify-content: flex-start;
+  margin-top: 7px;
+  padding-inline: 0;
+  border: 0;
+  border-top: 2px solid var(--accent);
+  border-radius: 0;
+  background: transparent;
+  color: #191719;
+}
+.asnl-account-submit:hover, .asnl-account-signout:hover { text-decoration: underline; text-underline-offset: 3px; }
+.asnl-account-signout { justify-self: start; padding-inline: 0; color: #191719; background: transparent; }
+.asnl-account :disabled { opacity: .6; cursor: wait; }
+.asnl-account .asnl-account-name { color: #191719; font-weight: 750; }
+.asnl-account .asnl-account-error { color: #92241b; font-weight: 650; }
+
+.account-page {
+  min-height: 100svh;
+  padding: 18px clamp(16px, 4vw, 48px) 50px;
+  background: #f8f5f3;
+  color: #191719;
+  color-scheme: light;
+}
+.account-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  font-weight: 650;
+}
+.account-back:hover { text-decoration: underline; text-underline-offset: 3px; }
+.account-page-content { width: min(100%, 430px); margin: clamp(22px, 6vh, 56px) auto 0; }
+.account-page-heading { display: flex; align-items: center; gap: 12px; margin-bottom: 22px; }
+.account-page-heading img { object-fit: contain; }
+.account-page-heading h1 { font: clamp(1.65rem, 4vw, 2.25rem)/1.1 'Archivo Black', sans-serif; letter-spacing: -.05em; }
+.account-page .asnl-account { padding: 0; gap: 19px; }
+.account-page .asnl-account-form { gap: 16px; }
+.account-page .asnl-account-form label { gap: 0; }
+.account-page .asnl-account-form input,
+.account-page .asnl-account-form textarea {
+  min-height: 44px;
+  padding: 6px 0;
+  border: 0;
+  border-bottom: 1px solid #827877;
+  border-radius: 0;
+  background: transparent;
+}
+.account-page .asnl-account-form :is(input, textarea):focus {
+  border-bottom-color: var(--accent);
+  box-shadow: inset 0 -1px var(--accent);
+  outline-offset: 2px;
+}
+.account-page .asnl-account-form small { padding-top: 4px; }

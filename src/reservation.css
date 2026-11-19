@@ -1,0 +1,152 @@
+.reservation { padding-bottom: 24px; }
+.reservation-header {
+  width: 100%;
+  padding-block: 4px 20px;
+}
+.reservation-top { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding-inline: clamp(14px, 2vw, 32px); }
+.reservation-fixture { display: flex; align-items: center; gap: 14px; margin-top: 8px; }
+.reservation-fixture img { flex: none; object-fit: contain; }
+@media (min-width: 1470px) {
+  .reservation-fixture { position: relative; }
+  .reservation-fixture img { position: absolute; inset-inline-end: calc(100% + 14px); }
+}
+.reservation-fixture h1 {
+  font: clamp(1.3rem, 3.2vw, 2.65rem)/1.07 'Archivo Black', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: -.045em;
+}
+.reservation-fixture h1 span { color: var(--red-ink); }
+.reservation-fixture p { margin-top: 5px; color: #615a5c; }
+
+.venue-card {
+  position: relative;
+  min-width: 0;
+  margin: 0;
+  color: white;
+  border-radius: 10px;
+  overflow: hidden;
+}
+.venue-card figcaption {
+  position: absolute;
+  z-index: 1;
+  inset: 0 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 8px 14px;
+  padding: clamp(12px, 2vw, 24px);
+  pointer-events: none;
+}
+.venue-card figcaption button { pointer-events: auto; }
+.venue-caption { display: flex; align-items: center; gap: 10px; min-width: 0; text-shadow: 0 1px 2px #000, 0 2px 6px #000e, 0 4px 12px #0009; }
+.venue-caption strong {
+  display: block;
+  color: white;
+  font: clamp(.8rem, 1.65vw, 1.25rem)/1.2 'Archivo Black', sans-serif;
+  text-transform: uppercase;
+}
+.venue-caption span { color: #ece3e3; font-size: .88rem; }
+.stadium-back { color: white; }
+.stadium-back svg { filter: drop-shadow(0 1px 1px #000) drop-shadow(0 2px 4px #000d); }
+
+.stadium-stage {
+  position: relative;
+  height: clamp(310px, 66svh, 760px);
+  background: radial-gradient(ellipse at 45% 36%, #3c3034, #19171a 78%);
+}
+.stadium-stage canvas { touch-action: none; }
+.stadium-loading { padding: 20px; }
+.stadium-fallback { display: block; width: 100%; height: auto; }
+.stadium-stage:has(.stadium-fallback) { height: auto; }
+.stadium-hover {
+  position: absolute;
+  inset: auto 14px 58px;
+  width: max-content;
+  max-width: calc(100% - 28px);
+  padding: 6px 10px;
+  border-radius: 5px;
+  background: #1d191ce8;
+  color: white;
+  pointer-events: none;
+}
+.stadium-controls {
+  position: absolute;
+  z-index: 1;
+  inset: auto 10px 8px auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2px;
+}
+.stadium-controls button {
+  display: inline-grid;
+  place-items: center;
+  min-width: 44px;
+  min-height: 44px;
+  padding: 0 6px;
+  border: 0;
+  border-radius: 6px;
+  background: transparent;
+  color: #f5eeee;
+  font: inherit;
+  cursor: pointer;
+}
+.stadium-controls button svg { width: 17px; height: 17px; }
+.stadium-controls button:hover { background: #ffffff20; }
+.stadium-controls .stadium-keyboard:focus { background: #222; }
+.stadium-controls .stadium-keyboard:not(:focus) {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  min-width: 0;
+  min-height: 0;
+  padding: 0;
+  clip-path: inset(50%);
+}
+.reservation-layout {
+  display: grid;
+  align-items: start;
+  gap: clamp(14px, 2vw, 24px);
+}
+.stadium-summary {
+  padding: 8px 0 0;
+  color: #191719;
+}
+.stadium-summary h2 {
+  padding-bottom: 9px;
+  border-bottom: 2px solid var(--accent);
+  font: 1.2rem/1.2 'Archivo Black', sans-serif;
+}
+.stadium-summary-count { margin-top: 14px; font-weight: 750; }
+.stadium-recap-group { margin-top: 10px; }
+.stadium-recap-group h3 { margin: 0; color: #615a5c; font-size: .95rem; font-weight: 700; }
+.stadium-recap-seats { margin: 4px 0 8px; padding: 0; list-style: none; }
+.stadium-recap-seats li { display: flex; align-items: center; justify-content: space-between; gap: 6px; }
+.stadium-remove-seat svg { width: 15px; height: 15px; opacity: .58; }
+.stadium-remove-seat:hover svg, .stadium-remove-seat:focus-visible svg { opacity: 1; }
+.stadium-recap-seats li + li { border-top: 1px solid #e4dbd8; }
+.stadium-pay {
+  min-height: 48px;
+  font-size: 1.12rem;
+  justify-content: flex-start;
+  width: 100%;
+  padding-inline: 0;
+  border: 0;
+  border-top: 2px solid var(--accent);
+  border-radius: 0;
+  background: transparent;
+  color: inherit;
+}
+.stadium-pay:hover { text-decoration: underline; text-underline-offset: 3px; }
+@media (min-width: 760px) {
+  .reservation-layout:has(.stadium-summary) { grid-template-columns: minmax(0, 1fr) clamp(190px, 20vw, 260px); }
+}
+.stadium-list label { font-weight: 700; }
+.stadium-list select { min-height: 44px; font: inherit; }
+.stadium-list-seats { display: flex; flex-wrap: wrap; gap: 6px; }
+.stadium-list-seats button { min-width: 44px; padding-inline: 7px; color: #165c31; border-color: #297b46; background: #edf7ee; }
+.stadium-list-seats button[aria-pressed=true] { color: white; background: #af271d; border-color: #af271d; }
+
+@media (max-width: 600px) {
+  .stadium-stage { height: clamp(285px, 55svh, 470px); }
+}

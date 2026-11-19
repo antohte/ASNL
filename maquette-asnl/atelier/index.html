@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#141315">
+  <title>Atelier 3D de l’écusson ASNL</title>
+  <script type="module" src="/atelier.js"></script>
+</head>
+<body>
+  <main class="workspace">
+    <header>
+      <img class="crest-mark" src="/logo-source.png" width="34" height="40" alt="">
+      <h1>Atelier 3D <span>AS Nancy Lorraine</span></h1>
+    </header>
+    <div class="workbench">
+      <figure class="stage">
+        <div class="viewport" id="viewport">
+          <img id="fallback" src="/logo-source.png" width="250" height="295" alt="Écusson rouge et blanc de l’AS Nancy Lorraine">
+        </div>
+        <figcaption id="instructions">Glisse pour tourner. Utilise la molette ou pince pour zoomer. Au clavier, utilise les flèches et les touches + et −.</figcaption>
+      </figure>
+      <section class="panel" aria-labelledby="settings">
+        <h2 id="settings">Réglages</h2>
+        <fieldset id="tools" disabled>
+          <legend class="sr-only">Réglages de l’écusson</legend>
+          <div class="setting">
+            <div class="label-row"><label for="relief">Hauteur du relief</label><span id="relief-value"></span></div>
+            <input id="relief" type="range" min="0.5" max="5" step="0.1" value="2.5">
+          </div>
+          <div class="setting finish">
+            <div class="label-row"><label for="finish">Finition du métal</label></div>
+            <input id="finish" type="range" min="0.22" max="0.54" step="0.01" value="0.32">
+            <div class="limits" aria-hidden="true"><span>Poli</span><span>Satiné</span></div>
+          </div>
+          <div class="view-select" role="group" aria-label="Choisir un angle">
+            <button type="button" data-view="angle" aria-pressed="true">Trois quarts</button>
+            <button type="button" data-view="front" aria-pressed="false">Face</button>
+            <button type="button" data-view="side" aria-pressed="false">Profil</button>
+            <button type="button" data-view="back" aria-pressed="false">Dos</button>
+          </div>
+          <button class="spin" id="spin" type="button" aria-pressed="false">Rotation automatique</button>
+          <div class="exports">
+            <button class="primary" id="export-glb" type="button">Télécharger le GLB</button>
+            <button id="export-png" type="button">Télécharger l’aperçu PNG</button>
+          </div>
+        </fieldset>
+        <p id="status" role="status"></p>
+      </section>
+    </div>
+    <noscript>Active JavaScript pour manipuler l’écusson en 3D.</noscript>
+  </main>
+</body>
+</html>

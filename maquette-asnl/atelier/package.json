@@ -1,0 +1,16 @@
+{
+  "name": "atelier-ecusson-asnl",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 127.0.0.1",
+    "build": "vite build"
+  },
+  "dependencies": {
+    "d3-contour": "4.0.2",
+    "three": "0.187.0"
+  },
+  "devDependencies": {
+    "vite": "^7.0.0"
+  }
+}

@@ -1,0 +1,117 @@
+.ticket-page .catalog-heading h1 { text-transform: uppercase; }
+
+.ticket-page > main { padding-block-end: clamp(24px, 4vw, 48px); }
+.ticket-action svg { width: 16px; flex: none; }
+.ticket-details:hover { text-decoration: underline; text-underline-offset: 4px; }
+
+.ticket-choices {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  padding-block-start: 12px;
+}
+
+.ticket-choice {
+  min-height: clamp(200px, 34vw, 420px);
+  padding: 0;
+  color: white;
+  text-align: start;
+}
+
+.ticket-choice-match img { object-position: center 42%; }
+.ticket-choice-parking img { object-position: center 35%; }
+.ticket-choice[aria-expanded=true] .tile-arrow {
+  background: var(--accent);
+  border-color: var(--accent);
+}
+.ticket-choice[aria-expanded=true] .tile-arrow svg { transform: rotate(180deg); }
+
+.ticket-list { padding-block-start: 16px; scroll-margin-block-start: 8rem; }
+.ticket-list:focus { outline: none; }
+
+@media (max-width: 560px) {
+  .ticket-choices { grid-template-columns: minmax(0, 1fr); }
+  .ticket-choice .tile-title { font-size: 1.7rem; }
+}
+
+.match-ticket {
+  display: grid;
+  grid-template-columns: clamp(86px, 12vw, 162px) minmax(0, 1fr);
+  border-radius: 4px;
+  color: white;
+  background: linear-gradient(90deg, #191719fa, #191719e3 64%, #1917199e),
+    url('/medias/stade-de-nuit.webp') center 56% / cover;
+  box-shadow: 0 12px 24px #18171919;
+}
+
+.match-date {
+  display: grid;
+  align-content: center;
+  justify-items: center;
+  border-inline-end: 1px dashed #ffffff73;
+  background: #1614174d;
+  border-radius: 4px 0 0 4px;
+  text-transform: uppercase;
+  font-weight: 650;
+  letter-spacing: .06em;
+}
+
+.match-date b { font: clamp(3.6rem, 7vw, 7rem)/.86 'Bebas Neue', sans-serif; }
+.match-date span { font-size: clamp(.7rem, 1.5vw, .95rem); margin-top: 8px; }
+.match-body, .parking-ticket, .ticket-empty { padding: clamp(20px, 3.1vw, 46px); }
+.match-competition { margin-bottom: 13px; color: #ffe0db; font-weight: 650; }
+
+.match-body h2 {
+  font: clamp(1.5rem, 3.35vw, 3.55rem)/1.02 'Archivo Black', sans-serif;
+  letter-spacing: -.055em;
+  text-transform: uppercase;
+}
+
+.match-body h2 span, .match-time span { display: block; }
+.match-body h2 span + span { color: #f5b8b0; }
+.match-time { margin-top: 16px; color: #f8f1ef; }
+.match-time time { font-weight: 680; }
+.match-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 16px; margin-top: 20px; }
+.match-actions a, .parking-ticket a { scroll-margin-block: 11rem 20px; }
+.ticket-details { display: inline-flex; align-items: center; min-height: 44px; font-weight: 650; }
+
+.ticket-action {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 44px;
+  padding: 7px 14px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  font-weight: 700;
+  line-height: 1.18;
+}
+
+.ticket-primary { color: #fff; background: var(--red-ink); }
+.ticket-primary:hover { background: #92241b; }
+.ticket-secondary { border-color: #332b2d; align-self: start; }
+.ticket-secondary:hover { background: #221e20; color: white; }
+
+.parking-ticket, .ticket-empty {
+  background: #fff;
+  border: 1px solid var(--shop-line);
+  border-radius: 4px;
+}
+
+.parking-ticket { display: flex; flex-direction: column; align-items: flex-start; }
+.parking-icon { display: grid; place-items: center; width: 40px; height: 40px; color: var(--red-ink); background: #faeeeb; border-radius: 4px; margin-bottom: 14px; }
+.parking-icon svg { width: 23px; }
+.parking-ticket h2, .ticket-empty h2 { font: clamp(1.18rem, 2.1vw, 1.65rem)/1.14 'Archivo Black', sans-serif; letter-spacing: -.04em; }
+.parking-fixture { margin-top: 10px; font-weight: 700; }
+.parking-guide { color: #615b5e; margin: 12px 0 20px; }
+.parking-ticket .ticket-action { margin-top: auto; }
+.ticket-empty p { margin: 10px 0 18px; }
+
+@media (max-width: 420px) {
+  .match-ticket { grid-template-columns: 58px minmax(0, 1fr); }
+  .match-body { padding: 17px 14px; }
+  .match-date b { font-size: 2.7rem; }
+  .match-date span { font-size: .61rem; letter-spacing: .015em; }
+  .match-actions { margin-top: 14px; }
+}

@@ -1,0 +1,117 @@
+.parking-page main { padding-bottom: clamp(28px, 4vw, 48px); }
+.parking-header { margin: 8px 0 20px; }
+.parking-header p { color: #615a5c; }
+
+.parking-layout { display: grid; grid-template-columns: minmax(0, 1fr); align-items: start; gap: clamp(16px, 3vw, 34px); }
+.parking-map { margin: 0; }
+.parking-map figcaption {
+  padding-bottom: 10px;
+  font-weight: 700;
+}
+.parking-map-image {
+  position: relative;
+  isolation: isolate;
+  border-radius: 6px;
+  background: #fff;
+}
+.parking-map-image img { width: 100%; height: auto; border-radius: inherit; }
+.parking-pin {
+  position: absolute;
+  translate: -50% -50%;
+  display: grid;
+  place-items: center;
+  min-width: 34px;
+  min-height: 34px;
+  padding: 0 6px;
+  border: 1px solid #d9d4d3;
+  border-radius: 5px;
+  background: #fff;
+  color: #171516;
+  box-shadow: 0 2px 6px #24191935;
+  font: 750 .88rem 'Source Sans 3 Variable', sans-serif;
+  cursor: pointer;
+}
+.parking-pin-special { font-size: .75rem; }
+.parking-pin:hover, .parking-pin[aria-pressed=true] { background: var(--red-ink); border-color: var(--red-ink); color: #fff; }
+.parking-pin:hover, .parking-pin:focus-visible, .parking-pin[aria-pressed=true] { z-index: 1; }
+
+.parking-summary { color: #191719; }
+.parking-summary h2 {
+  padding-bottom: 9px;
+  margin-bottom: 14px;
+  border-bottom: 2px solid var(--accent);
+  font: 1.2rem/1.2 'Archivo Black', sans-serif;
+}
+.parking-summary label { display: block; margin-bottom: 6px; font-weight: 650; }
+#parking-zone {
+  width: 100%;
+  min-height: 44px;
+  padding: 7px 12px;
+  border: 1px solid #bdb2b0;
+  border-radius: 7px;
+  background: #fff;
+  box-shadow: 0 1px 2px #1917190c;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+}
+#parking-zone:has(option[value=""]:checked) { color: #615a5c; }
+@supports (appearance: base-select) {
+  #parking-zone, #parking-zone::picker(select) { appearance: base-select; }
+  #parking-zone::picker(select) {
+    margin-block: 5px;
+    padding: 4px;
+    border: 1px solid #d6cecb;
+    border-radius: 8px;
+    background: #fff;
+    box-shadow: 0 8px 24px #19171924;
+    color: #191719;
+  }
+  #parking-zone::picker-icon {
+    content: '';
+    width: 7px;
+    height: 7px;
+    margin: 3px 2px 0 auto;
+    border: solid #665d60;
+    border-width: 0 1.5px 1.5px 0;
+    transform: rotate(45deg);
+  }
+  #parking-zone:open::picker-icon { transform: translateY(3px) rotate(225deg); }
+  #parking-zone option {
+    min-height: 40px;
+    padding: 7px 9px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  #parking-zone option:hover, #parking-zone option:focus-visible { background: #f5eeeb; }
+  #parking-zone option:checked { font-weight: 700; }
+  #parking-zone option::checkmark { order: 1; margin-inline-start: auto; color: var(--red-ink); }
+}
+.parking-selection { padding-top: 15px; }
+.parking-selection p { color: #615a5c; }
+.parking-selection .parking-chosen { margin-bottom: 4px; color: #191719; font-weight: 750; }
+.parking-quick {
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 14px;
+  padding-inline: 0;
+  border: 0;
+  border-top: 2px solid var(--accent);
+  border-radius: 0;
+}
+.parking-quick:hover { text-decoration: underline; text-underline-offset: 3px; }
+@media (min-width: 760px) {
+  .parking-layout { grid-template-columns: minmax(0, 1fr) minmax(230px, 26%); }
+}
+@media (max-width: 470px) {
+  .parking-pin { min-width: 27px; min-height: 27px; font-size: .77rem; padding-inline: 3px; }
+  .parking-pin-special { font-size: .65rem; }
+}
+
+.parking-pay {
+  min-height: 48px;
+  margin-top: 0;
+  background: transparent;
+  color: inherit;
+  font-size: 1.12rem;
+}
